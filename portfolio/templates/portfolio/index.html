@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="{{ meta.last.icon.url }}" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ meta.last.description }}">
+    <link rel="stylesheet" href="{% static 'portfolio/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'portfolio/css/slide.css' %}">
+    <title>portfolio</title>
+</head>
+<body>  
+    <nav class="nav">
+        <a class="btn active" href="#home">Home</a>
+        <a class="btn" href="#skills">skills</a>
+        <a class="btn" href="#project">projects</a>
+        <a class="btn" href="#contac">Contact</a>
+    </nav>  
+    <div class="conte">  
+        <header id="home" class="box header">
+            <img class="photo" src="{{ me.last.photo.url }}" alt="photo" />
+            <h2>{{ me.last.intro }}</h2>
+        </header>
+        <section id="skills" class="box section-1">
+            {% for skill in skills %}
+            <div class="skill">
+                <img class="icon" src="{{ skills.last.icon.url }}" alt="" />
+                <h5>{{ skills.last.skill }}</h5>
+            </div>
+            {% endfor %}
+        </section>
+            {% include 'portfolio/slide.html' %}
+        <section class="box section-3">
+            <h4>code</h4>
+            <video width="320" height="240" autoplay controls>
+                <source src="{{ video.last.video.url }}" type="video/mp4">
+              </video> 
+        </section>
+        <footer id="contac" class="box footer">
+            <form method="POST">
+                {% csrf_token %}
+                <input type="text" name="name" placeholder="name" />
+                <input required type="email" name="email" placeholder="Email" />
+                <textarea required name="message" cols="60" placeholder="Enter youer message" rows="10"></textarea>
+                <button type="submit">send</button>
+            </form>
+            <hr>
+            <ul>
+                <a href="{{ link.last.facebook }}"><img src="{% static 'portfolio/img/facebook.png' %}" alt="facebook" srcset=""></a>
+                <a href="{{ link.last.github }}"><img src="{% static 'portfolio/img/github.png' %}" alt="github" srcset=""></a>
+                <a href="{{ link.last.telgram }}"><img src="{% static 'portfolio/img/telgram.png' %}" alt="telgram" srcset=""></a>
+             </ul>
+        </footer>
+    </div>
+    <script src="{% static 'portfolio/js/java.js' %}"></script>
+</body>
+</html>

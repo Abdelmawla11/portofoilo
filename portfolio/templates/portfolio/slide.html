@@ -1,0 +1,23 @@
+{% load static %}
+<section id="project" class="box section-2">
+    <h4>project</h4>
+    {% for photos in photo %}
+        <div class="mySlides">
+            <img src="{{ photos.img.url }}" alt="Image 1">
+        </div>
+    {% endfor %}
+    <div class="flex">
+
+    {% if photo == 0 %}
+        <a class="prev" onclick="plusSlides(-1)">❮❮❮</a>
+    {% endif %}
+    {% for photos in photo %}
+        <span class="dot" onclick="currentSlide('{{ photos.number }}')">{{ photos.number }}</span>
+    {% endfor %}
+    {% if photo == 0 %}
+        <a class="next" onclick="plusSlides(1)">❯❯❯</a>
+        {% else  %}
+        <h4 style="width: 150px;">no project</h4>
+    {% endif %}
+    </div>
+</section>

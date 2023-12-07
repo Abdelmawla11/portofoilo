@@ -1,0 +1,203 @@
+/* reset */
+*{
+    margin: 0;
+    padding:0;
+    color:#FFF;
+    text-align: center;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: cursive;
+    font-weight: bolder;
+    letter-spacing: 2px;
+}
+
+/* */
+body{
+    background-color: #220f56;
+}
+
+nav {
+    position: fixed;
+    width: 10%;
+    margin: 0 0 0 2%;
+}
+
+nav a {
+    display: block;
+    padding: 16px;
+    text-decoration: none;
+    border-radius: 30px;
+    margin: 10px 0 100px 0;
+    border: 1px solid  rgb(5, 29, 245);
+}
+
+video {
+    width: 100%;
+    height: auto;
+  }
+
+
+footer {
+    grid-area: footer;
+    background-color: #007cb9;
+}
+
+input[type=text],input[type=email], textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 10px 0;
+    color: #220f56;
+    text-align: left;
+}
+
+button,footer ul a  {
+    all: unset;
+}
+
+button {
+    all: unset;
+    padding: 16px;
+    border-radius: 40px;
+    background-color: #220f56;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #00f;
+}
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+footer ul a img {    
+    width: 30%;
+    height: auto;
+}
+
+hr {
+    color: #0ba2ed;
+}
+
+header {
+    grid-area: header;
+    background-image: url(bg.jpg);
+    display: flex;
+    background-repeat: no-repeat;
+}
+
+header .photo {
+    padding: 10px;
+    width: 50%;
+    height: auto;
+    border-radius: 20%;
+}
+
+header h2 {
+    margin-top: 20px;
+    width: 50%;
+}
+
+section {
+    background-color: #017b95;
+}
+
+h4 {
+    background-color: #ccc;
+    width: 100px;
+    padding: 16px;
+    border-radius: 20px;
+    margin: 20px auto;
+} 
+
+/* class and id */
+.conte{
+    gap: 15px;
+    width: 85%;
+    float: right;
+    display: grid;
+    grid-auto-rows: minmax(200px,auto);
+    grid-template-columns: repeat(1,1fr);
+    grid-template-areas: 
+    'header'
+    'header'
+    'section-1'
+    'section-2'
+    'section-3'
+    'footer'    
+    ;
+}
+
+.box {
+    padding: 20px 50px;
+}
+
+
+.nav .active, .nav .btn:hover{
+    background-color: rgb(5, 29, 245);
+    border-radius: 30px;
+    border: none;
+}
+
+
+.section-1 {
+    grid-area: section-1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.skill {
+    background-color:#035d7f;
+    width: 45%;
+    padding: 16px;
+    margin: 10px;
+    border-radius: 30px;
+
+}
+
+.section-1 .icon {
+    width: 50px;
+    border: none;
+    border-radius: 20px;
+    height: 50px;
+    margin-right: 70%;
+}
+
+.section-2 {
+    grid-area: section-2;
+}
+
+.section-2 img {
+    width: 50%;
+    height: auto;
+}
+
+
+.section-3 {
+    grid-area: section-3;
+}
+
+/* media */ 
+@media screen and (max-width: 700px) {
+    .nav {
+        width: 100%;
+        background-color: #220f56;
+        display: flex;
+        justify-content: space-around;
+        padding: 16px 30px;
+        height: auto;
+    } 
+    
+    header {margin-top: 60px;}
+    .nav{margin-left: 0;}
+    .nav a {float: left; padding: 10px;margin: 0;}
+    
+    .conte{grid-template-columns: repeat(1,1fr); width: 100%;}
+    .box {padding: 15px;}
+    .section-1 .skill {width: 100%;}
+}
